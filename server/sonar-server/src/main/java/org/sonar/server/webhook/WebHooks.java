@@ -48,9 +48,9 @@ public interface WebHooks {
     private final String ceTaskUuid;
     private final String analysisUuid;
 
-    public Analysis(String projectUuid, String analysisUuid, @Nullable  String ceTaskUuid) {
+    public Analysis(String projectUuid, @Nullable String analysisUuid, @Nullable  String ceTaskUuid) {
       this.projectUuid = requireNonNull(projectUuid, "projectUuid can't be null");
-      this.analysisUuid = requireNonNull(analysisUuid, "analysisUuid can't be null");
+      this.analysisUuid = analysisUuid;
       this.ceTaskUuid = ceTaskUuid;
     }
 
@@ -63,6 +63,7 @@ public interface WebHooks {
       return ceTaskUuid;
     }
 
+    @CheckForNull
     public String getAnalysisUuid() {
       return analysisUuid;
     }
